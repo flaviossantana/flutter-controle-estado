@@ -8,6 +8,15 @@ class HeroisController extends ChangeNotifier {
     HeroiModel(nome: "Homem de Ferro"),
     HeroiModel(nome: "Capitão Caverna"),
     HeroiModel(nome: "Dead Pool"),
+    HeroiModel(nome: "Batman"),
+    HeroiModel(nome: "Mulher-Maravilha"),
+    HeroiModel(nome: "Capitão América"),
+    HeroiModel(nome: "Hulk"),
+    HeroiModel(nome: "Wolverine"),
+    HeroiModel(nome: "Flash"),
+    HeroiModel(nome: "Thor"),
+    HeroiModel(nome: "Coringa"),
+    HeroiModel(nome: "Super Mouse"),
   ];
 
   checkFavoritos(HeroiModel heroi){
