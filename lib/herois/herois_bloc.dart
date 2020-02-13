@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_controle_estado/model/heroi_model.dart';
 
-class HeroisController extends ChangeNotifier {
+class HeroisBloc extends ChangeNotifier {
 
   List<HeroiModel> herois = [
     HeroiModel(nome: "Homem Aranha"),

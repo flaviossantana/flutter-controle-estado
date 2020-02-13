@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_controle_estado/herois/herois_bloc.dart';
+import 'package:flutter_controle_estado/model/heroi_model.dart';
 import 'package:provider/provider.dart';
 
-import 'herois_controller.dart';
-import 'model/heroi_model.dart';
-
-class HomeWidget extends StatefulWidget {
+class HeroisListWidget extends StatefulWidget {
   @override
-  _HomeWidgetState createState() => _HomeWidgetState();
+  _HeroisListWidgetState createState() => _HeroisListWidgetState();
 }
 
-class _HomeWidgetState extends State<HomeWidget> {
+class _HeroisListWidgetState extends State<HeroisListWidget> {
   _buildList() {
-    HeroisController heroisCtrl = Provider.of<HeroisController>(context);
-
+    HeroisBloc heroisCtrl = Provider.of<HeroisBloc>(context);
     return ListView.builder(
         itemCount: heroisCtrl.herois.length,
         itemBuilder: (context, idx) {
@@ -21,7 +19,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   }
 
   _buildItem(HeroiModel heroi) {
-    HeroisController heroisCtrl = Provider.of<HeroisController>(context);
+    HeroisBloc heroisCtrl = Provider.of<HeroisBloc>(context);
     return ListTile(
       title: Text(heroi.nome),
       trailing: heroi.ehFavorito
@@ -47,8 +45,8 @@ class _HomeWidgetState extends State<HomeWidget> {
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.only(top: 16.0),
-            child: Consumer<HeroisController>(
-              builder: (context, ctrl, widget){
+            child: Consumer<HeroisBloc>(
+              builder: (context, ctrl, widget) {
                 return Text(
                   "Total de Favoritos:  ${ctrl.totalFavoritos()}",
                   style: TextStyle(fontSize: 16.0),
@@ -58,7 +56,7 @@ class _HomeWidgetState extends State<HomeWidget> {
           ),
           Divider(),
           Expanded(
-            child: Consumer<HeroisController>(
+            child: Consumer<HeroisBloc>(
               builder: (context, heroisController, widget) {
                 return _buildList();
               },

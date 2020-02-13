@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_controle_estado/herois_controller.dart';
-import 'package:flutter_controle_estado/home_pages.dart';
+import 'package:flutter_controle_estado/herois/herois_bloc.dart';
 import 'package:provider/provider.dart';
+
+import 'cep/consulta_cep_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,8 +11,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<HeroisController>(
-          create: (_) => HeroisController(),
+        ChangeNotifierProvider<HeroisBloc>(
+          create: (_) => HeroisBloc(),
         )
       ],
       child: MaterialApp(
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.grey,
         ),
-        home: HomeWidget(),
+        home: ConsultaCepPage(),
       ),
     );
   }
